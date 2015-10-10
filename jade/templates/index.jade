@@ -1,23 +1,24 @@
 extends ../includes/layout.jade
 
 block body
-  +container()(class='example-wrapper')
+  +container()(class="main-content")
     +row()
-      +columns('twelve', 'last image-wrapper')
+      +columns('twelve', 'last')
+        td
+          h2 Veuillez confirmer votre email
+    +row()
+      +columns('twelve', 'last')
         td.center
-          img.center(src="https://db.tt/INvt3MHn")
-
+          p Nous vous remercions de bien vouloir confirmer votre adresse email en cliquant sur le bouton ci-dessous.
     +row()
-
-      +columns('eight')
-        td.text-pad
-          p.message
-            | Airwoot, a startup that helps brands provide customer support on 
-            | social media. Airwoot has built a next generation real-time customer 
-            | support using the sophisticated filtering and priority engine 
-            | that separates social chatter from relevant support queries.
-
+      +columns('twelve', 'last')
+        td.center
+          p En effet, nous avons besoin de vous envoyer des informations importantes pour le bon fonctionnement de notre service. Ce dernier ne peut fonctionner sans une adresse email valide.
     +row()(class="button-wrapper")
-      +columns ('six', 'last')
-        td.text-pad
-          +button("Learn More")(style="large-button radius")
+      +columns ('seven', 'last')
+        td.center
+          +button("Je confirme mon email")(style="large-button radius")
+    +row()
+      +columns ('seven', 'last')
+        td.center
+          +button("Je confirme mon email")(style="large-button radius")

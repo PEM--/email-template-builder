@@ -50,7 +50,7 @@ gulp.task "stylus", ->
     .pipe handleError()
     .pipe $.stylus()
     .pipe $.autoprefixer()
-    .pipe $.combineMediaQueries()
+    #.pipe $.combineMediaQueries()
     .pipe gulp.dest paths.css
     .pipe $.livereload()
 
@@ -61,6 +61,7 @@ gulp.task "jade", ->
   gulp.src paths.jadeTemplates
     .pipe $.jade(pretty:true)
     .pipe gulp.dest './'
+    .pipe $.livereload()
 
 # --------------------------------------------------------
 # Connect to server

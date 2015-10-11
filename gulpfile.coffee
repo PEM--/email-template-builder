@@ -52,6 +52,7 @@ gulp.task 'inline', ['jade', 'stylus'], ->
     #.pipe($.inlineCss(preserveMediaQueries: true))
     .pipe $.juice()
     .pipe gulp.dest paths.build
+    .pipe $.livereload()
 
 # Server
 gulp.task 'connect', ->
@@ -64,12 +65,8 @@ gulp.task 'reload', ->
 gulp.task 'watch', ->
   server = $.livereload()
   $.livereload.listen()
-  gulp.watch paths.stylus, ['stylus']
-  gulp.watch paths.jade, ['jade']
-  gulp.watch [
-    paths.html
-    paths.css
-  ], ['reload', 'inline']
+  gulp.watch paths.stylus, ['inline']
+  gulp.watch paths.jade, ['inline']
 
 gulp.task 'clean', require('del').bind(null, [
   paths.build, paths.css, paths.html

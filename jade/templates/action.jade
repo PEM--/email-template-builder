@@ -12,33 +12,33 @@ block body
         +row()
           +columns('twelve', 'last')
             td.text-pad
-              h3 Veuillez confirmer votre email
+              h3 HTML_TEMPLATE_ACTION_TITLE
         +row()
           +columns('twelve', 'last')
             td.center.text-pad
-              p Nous vous remercions de bien vouloir confirmer votre adresse email en cliquant sur le bouton ci-dessous.
+              p HTML_TEMPLATE_ACTION_MESSAGE
         +row()
           +columns('twelve', 'last')
             td.center.text-pad
-              p En effet, nous avons besoin de vous envoyer des informations importantes pour le bon fonctionnement de notre service. Ce dernier ne peut fonctionner sans une adresse email valide.
+              p HTML_TEMPLATE_ACTION_SUB_MESSAGE
         +row()(class='button-wrapper')
           +columns ('seven', 'last')
             td.center.text-pad
-              a(href='https://google.fr')
-                +button('Je confirme mon email')(style="large-button radius")
+              a(href='HTML_TEMPLATE_VALIDATE_URL')
+                +button('HTML_TEMPLATE_ACTION_BUTTON')(style="large-button radius")
         +row()
           +columns('twelve', 'last')
             td.center.text-pad
-              p — Le comité d'organisation AVEF/SNVEL
+              p — HTML_TEMPLATE_COMPANY
               p &nbsp;
 
     // Footer
     +fullWidthRow
       p.center
         | Suivez&nbsp;
-        a(href='http://o9z6.mjt.lu/link/o9z6/xw9tq7454o2r/2/f4d0A16B0qP8eXeO8h2X1g/aHR0cDovL3R3aXR0ZXIuY29tL0FWRUZf') @AVEF_
+        a(href='HTML_TEMPLATE_TWITTER_URL') HTML_TEMPLATE_TWITTER_ACCOUNT
         | &nbsp;sur Twitter.
       p.center
         | Suivez&nbsp; 
-        a(href='http://o9z6.mjt.lu/link/o9z6/xw9tq7454o2r/3/ZKdmZ2Kmx29bKk9NPf1AKg/aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL0NvbmdyZXMtQXZlZnNudmVsLTIwMTUtMTQ3NDQ2Njg2Mjg2NjIwNC8') Congrès AVEF - SNVEL
+        a(href='HTML_TEMPLATE_FACEBOOK_URL') HTML_TEMPLATE_FACEBOOK_ACCOUNT
         | &nbsp;sur Facebook.

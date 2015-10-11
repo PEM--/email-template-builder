@@ -26,26 +26,35 @@ headerFont = "Impact", sans-serif
 bodyFont = "Helvetica", "Arial", sans-serif
 preFont = 'Droid Sans Mono', 'Roboto Mono', 'Andale Mono', monospace
 
+// Import Ink (based on 1.0.5, modified for Stylus)
+@import '_ink'
+
 // Whole email
 body, .body, html
   background hoveredInvertedBrandPrimary !important
 
 .main-content
   background #ffffff !important
-  padding 20px
-  margin 20px
-  border 1px solid brandPrimary
-  border-radius 5px
+  padding 20px !important
+  margin 20px !important
+  border 1px solid brandPrimary !important
+  border-radius 5px !important
 
 // Invoice
 .invoice
-  border 1px grey solid
-  background lightGrey
+  border 1px grey solid !important
+  background lightGrey !important
   pre
-    color darkGrey
+    color darkGrey !important
 
-// Import Ink (based on 1.0.5, modified for Stylus)
-@import '_ink'
+.cgv
+  h1, h2, h3, h4, h5, h6
+    color textColor !important
+    text-align left !important
+    font-size 14px !important
+  p, a
+    font-size 12px !important
+    text-align justify !important
 
 // Old junkyard
 // body-font-size = 18px

@@ -22,23 +22,22 @@ mixin columns(number, wrapperClasses)
   - var columnClass = number + (attributes.visibility ? ' ' + attributes.visibility: '')
 
   td.wrapper(class=wrapperClasses)
-    - if (attributes.visibility === "show-for-small")
+    - if (attributes.visibility === 'show-for-small')
       // [if !mso]><!-- 
     table.columns(class!= columnClass)
       tr
         if block
           block
         td.expander
-    - if (attributes.visibility === "show-for-small")
+    - if (attributes.visibility === 'show-for-small')
       // <![endif]
 
-
-
-mixin fullWidthRow()
+mixin fullWidthRow(wrapperClasses)
+  - var wrapperClasses = wrapperClasses ? wrapperClasses : ''
   +row()
-    td.center(align="center")
+    td.center(align='center')
       center
-        +container
+        +container()(class!=wrapperClasses)
           +columns('tweleve', 'last') 
             if block
               block

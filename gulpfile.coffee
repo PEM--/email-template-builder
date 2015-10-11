@@ -9,14 +9,14 @@ args = (require 'yargs').argv
 
 # Paths
 paths =
-  jade: './jade/**/**/*.jade'
+  jade: './jade/**/*.jade'
   jadeTemplates: './jade/templates/*.jade'
   html: './*.html'
   stylus: 'styles/**/*.styl'
   stylusIndex: './styles/styles.styl'
   css: 'styles/css/'
   images: 'images/*'
-  build: './build'
+  build: './build/'
 
 # Direct errors to notification center
 handleError = ->
@@ -26,10 +26,10 @@ handleError = ->
 
 # Build
 gulp.task 'inline', ->
-  gulp.src paths.html
+  gulp.src [paths.html]
     #.pipe($.inlineCss(preserveMediaQueries: true))
     .pipe $.juice()
-    .pipe gulp.dest(paths.build)
+    .pipe gulp.dest paths.build
 
 gulp.task 'plaintext', ->
   gulp.src paths.html
@@ -37,7 +37,7 @@ gulp.task 'plaintext', ->
     .pipe gulp.dest paths.build + '/plaintext'
 
 # Stylus
-gulp.task "stylus", ->
+gulp.task 'stylus', ->
   gulp.src paths.stylusIndex
     .pipe handleError()
     .pipe $.stylus()
@@ -69,47 +69,51 @@ gulp.task 'watch', ->
   gulp.watch [
     paths.html
     paths.css
-  ], ['reload', 'build']
+  ], ['reload', 'inline']
 
 gulp.task 'clean', require('del').bind(null, [paths.build])
 
+# Add Media Queries to Head (configure in ./addMediaQueries.coffee)
+# gulp.task 'addMediaQueries', ->
+#   addMediaQueries files
+
 # Build
-gulp.task 'build', ->
-  runSequence [
-    'inline'
-    'addMediaQueries'
-  ]
+# gulp.task 'build', ->
+#   runSequence [
+#     'inline'
+#     'addMediaQueries'
+#   ]
+# gulp.task 'build', ->
+#   runSequence [
+#     'inline'
+#     'addMediaQueries'
+#   ]
 
 # --------------------------------------------------------
 # SEND EMAIL (configure in ./mailer.coffee)
 # --------------------------------------------------------
 # Files to email
-files = [
-  "index.html"
-]
+# files = [
+#   "index.html"
+# ]
+#
+# filename = args.file
+# gulp.task "send", ->
+#   send(filename)
+#
+# gulp.task "sendAll", ->
+#   i = 0
+#   while i < files.length
+#     file = files[i].split(".")
+#     send(file[0])
+#     i++
 
-filename = args.file
-gulp.task "send", ->
-  send(filename)
-
-gulp.task "sendAll", ->
-  i = 0
-  while i < files.length
-    file = files[i].split(".")
-    send(file[0])
-    i++
-
-# --------------------------------------------------------
-# Add Media Queries to Head (configure in ./addMediaQueries.coffee)
-# --------------------------------------------------------
-gulp.task 'addMediaQueries', ->
-  addMediaQueries(files)
 
 # --------------------------------------------------------
 # Connect to server
 # --------------------------------------------------------
 gulp.task 'default', [
-  'build'
+  'inline'
   'connect'
   'watch'
 ]

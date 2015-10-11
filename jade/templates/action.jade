@@ -3,7 +3,7 @@ extends ../includes/layout.jade
 block body
   +fullWidthRow
     p.center &nbsp;
-  +container()(class="main-content")
+  +container()(class='main-content')
     +row()
       +columns('twelve', 'last')
         td.text-pad
@@ -16,23 +16,16 @@ block body
       +columns('twelve', 'last')
         td.center.text-pad
           p En effet, nous avons besoin de vous envoyer des informations importantes pour le bon fonctionnement de notre service. Ce dernier ne peut fonctionner sans une adresse email valide.
-    +row()
-      +columns('twelve', 'last')
-        td.center.text-pad
-          pre.invoice.
-            Blabla
-            blabla
-            blibli blibli
-    +row()(class="button-wrapper")
+    +row()(class='button-wrapper')
       +columns ('seven', 'last')
         td.center.text-pad
-          +button("Je confirme mon email")(style="large-button radius")
+          a(href='https://google.fr')
+            +button('Je confirme mon email')(style="large-button radius")
     +row()
       +columns('twelve', 'last')
         td.center.text-pad
           p — Le comité d'organisation AVEF/SNVEL
-    +fullWidthRow
-      p &nbsp;
+          p &nbsp;
   +fullWidthRow
     p.center
       | Suivez&nbsp;

@@ -1,7 +1,12 @@
-# Responsive Email Workflow
+# Email template workflow
+
+* [Responsive Email Workflow - Initial & forked project](https://github.com/WINTR/email-workflow)
+* [Jink](https://github.com/memeticlabs/jink)
 
 A starting boilerplate for building responsive emails, using NodeJS and various fancy tools to make life easier.
 
+## ToDo
+* Doc inspiration: https://github.com/leemunroe/grunt-email-workflow
 
 ### Get Started:
 - Install [nodeJS](http://nodejs.org/download/)

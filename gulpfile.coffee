@@ -1,25 +1,22 @@
-gulp = require("gulp")
-$ = require('gulp-load-plugins')()
+gulp = require 'gulp'
+$ = (require 'gulp-load-plugins')()
 # non-gulp
-pngcrush = require('imagemin-pngcrush')
-send = require("./mailer")
-addMediaQueries = require("./addMediaQueries")
+pngcrush = require 'imagemin-pngcrush'
+send = require './mailer'
+addMediaQueries = require './addMediaQueries'
 runSequence = require 'run-sequence'
-args = require('yargs').argv
+args = (require 'yargs').argv
 
-# --------------------------------------------------------
-# Path Configurations
-# --------------------------------------------------------
+# Paths
 paths =
-  jade: "./jade/**/**/*.jade"
-  jadeTemplates: "./jade/templates/*.jade"
-  html: "./*.html"
-  stylus: "styles/**/*.styl"
-  stylusIndex: "./styles/styles.styl"
-  css: "styles/css/"
-  images: "images/*"
-  build: "./build"
-
+  jade: './jade/**/**/*.jade'
+  jadeTemplates: './jade/templates/*.jade'
+  html: './*.html'
+  stylus: 'styles/**/*.styl'
+  stylusIndex: './styles/styles.styl'
+  css: 'styles/css/'
+  images: 'images/*'
+  build: './build'
 
 # Direct errors to notification center
 handleError = ->
@@ -27,24 +24,19 @@ handleError = ->
     $.util.beep()
     "Error: <%= error.message %>"
 
-#--------------------------------------------------------
-# BUILD Tasks
-#--------------------------------------------------------
-gulp.task "inline", ->
-  gulp.src(paths.html)
+# Build
+gulp.task 'inline', ->
+  gulp.src paths.html
     #.pipe($.inlineCss(preserveMediaQueries: true))
-    .pipe($.juice())
+    .pipe $.juice()
     .pipe gulp.dest(paths.build)
 
-gulp.task "plaintext", ->
-  gulp.src(paths.html)
-    .pipe($.html2txt())
-    .pipe gulp.dest(paths.build + "/plaintext")
-  return
+gulp.task 'plaintext', ->
+  gulp.src paths.html
+    .pipe $.html2txt()
+    .pipe gulp.dest paths.build + '/plaintext'
 
-#--------------------------------------------------------
-# Compile Stylus
-#--------------------------------------------------------
+# Stylus
 gulp.task "stylus", ->
   gulp.src paths.stylusIndex
     .pipe handleError()
@@ -54,54 +46,38 @@ gulp.task "stylus", ->
     .pipe gulp.dest paths.css
     .pipe $.livereload()
 
-#--------------------------------------------------------
-# Compile Jade
-#--------------------------------------------------------
-gulp.task "jade", ->
+# Jade
+gulp.task 'jade', ->
   gulp.src paths.jadeTemplates
-    .pipe $.jade(pretty:true)
+    .pipe $.jade()
     .pipe gulp.dest './'
     .pipe $.livereload()
 
-# --------------------------------------------------------
-# Connect to server
-# --------------------------------------------------------
-gulp.task "connect", ->
+# Server
+gulp.task 'connect', ->
   $.connect.server
     root: __dirname
 
-#--------------------------------------------------------
-# Watch for changes and reload page
-#--------------------------------------------------------
-gulp.task "reload", ->
+gulp.task 'reload', ->
   gulp.src(paths.html).pipe $.livereload()
-  return
 
-gulp.task "watch", ->
+gulp.task 'watch', ->
   server = $.livereload()
   $.livereload.listen()
-
-  gulp.watch paths.stylus, ["stylus"]
-  gulp.watch paths.jade, ["jade"]
-
+  gulp.watch paths.stylus, ['stylus']
+  gulp.watch paths.jade, ['jade']
   gulp.watch [
     paths.html
     paths.css
-  ], ["reload", "build"]
+  ], ['reload', 'build']
 
-  return
+gulp.task 'clean', require('del').bind(null, [paths.build])
 
-
-gulp.task "clean", require("del").bind(null, [paths.build])
-
-# --------------------------------------------------------
-# BUILD
-# --------------------------------------------------------
-gulp.task "build", ->
-
+# Build
+gulp.task 'build', ->
   runSequence [
-    "inline"
-    "addMediaQueries"
+    'inline'
+    'addMediaQueries'
   ]
 
 # --------------------------------------------------------
@@ -126,13 +102,14 @@ gulp.task "sendAll", ->
 # --------------------------------------------------------
 # Add Media Queries to Head (configure in ./addMediaQueries.coffee)
 # --------------------------------------------------------
-gulp.task "addMediaQueries", ->
+gulp.task 'addMediaQueries', ->
   addMediaQueries(files)
 
 # --------------------------------------------------------
 # Connect to server
 # --------------------------------------------------------
-gulp.task "default", [
-  "connect"
-  "watch"
+gulp.task 'default', [
+  'build'
+  'connect'
+  'watch'
 ]

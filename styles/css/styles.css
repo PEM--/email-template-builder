@@ -1,14 +1,21 @@
 body,
 .body,
 html {
-  background: #ffe3d1 !important;
+  background: #ffefd1 !important;
 }
 .main-content {
   background: #fff !important;
   padding: 20px;
   margin: 20px;
-  border: 1px solid #f60;
+  border: 1px solid #ffa500;
   border-radius: 5px;
+}
+.invoice {
+  border: 1px #bcbcbc solid;
+  background: #f0f0f0;
+}
+.invoice pre {
+  color: #6b6b6b;
 }
 #outlook a {
   padding: 0;
@@ -60,20 +67,20 @@ center {
   min-width: 580px;
 }
 a {
-  color: #f60;
+  color: #ffa500;
   text-decoration: none;
 }
 a img {
   border: none;
 }
 a:hover {
-  color: #f60 !important;
+  color: #ffa500 !important;
 }
 a:active {
-  color: #f60 !important;
+  color: #ffa500 !important;
 }
 a:visited {
-  color: #f60 !important;
+  color: #ffa500 !important;
 }
 p {
   margin: 0 0 0 10px;
@@ -323,8 +330,8 @@ td {
   text-align: left;
 }
 hr {
-  color: #ffb380;
-  background-color: #ff944d;
+  color: #ffd280;
+  background-color: #ffc04d;
   height: 1px;
   border: none;
 }
@@ -470,7 +477,7 @@ body,
 table.body,
 p,
 td {
-  color: #555;
+  color: #6b6b6b;
   font-family: "Helvetica", "Arial", sans-serif;
   font-weight: normal;
   padding: 0;
@@ -484,7 +491,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #006b00;
+  color: #007e5f;
   font-family: "Impact", sans-serif;
   word-break: normal;
 }
@@ -528,7 +535,7 @@ h3 a,
 h4 a,
 h5 a,
 h6 a {
-  color: #f60;
+  color: #ffa500;
 }
 h1 a:active,
 h2 a:active,
@@ -536,7 +543,7 @@ h3 a:active,
 h4 a:active,
 h5 a:active,
 h6 a:active {
-  color: #e65c00 !important;
+  color: #e69500 !important;
 }
 h1 a:visited,
 h2 a:visited,
@@ -544,7 +551,7 @@ h3 a:visited,
 h4 a:visited,
 h5 a:visited,
 h6 a:visited {
-  color: #e65c00 !important;
+  color: #e69500 !important;
 }
 .panel {
   background: #f2f2f2;
@@ -573,9 +580,9 @@ table.large-button td {
   display: block;
   width: auto !important;
   text-align: center;
-  background: #f60;
-  border: 1px solid #e65c00;
-  color: #ffd1b3;
+  background: #ffa500;
+  border: 1px solid #e69500;
+  color: #ffe4b3;
   padding: 8px 0;
 }
 table.button td a,
@@ -586,7 +593,7 @@ table.large-button td a {
   font-weight: bold;
   text-decoration: none;
   font-family: Helvetica, Arial, sans-serif;
-  color: #ffd1b3;
+  color: #ffe4b3;
   font-size: 16px;
   display: block;
   height: 100%;
@@ -595,19 +602,19 @@ table.large-button td a {
 table.button:hover td,
 table.button:visited td,
 table.button:active td {
-  background: #e65c00 !important;
+  background: #e69500 !important;
 }
 table.button:hover td a,
 table.button:visited td a,
 table.button:active td a {
-  color: #ffe3d1 !important;
+  color: #ffefd1 !important;
 }
 table.button:hover td,
 table.tiny-button:hover td,
 table.small-button:hover td,
 table.medium-button:hover td,
 table.large-button:hover td {
-  background: #e65c00 !important;
+  background: #e69500 !important;
 }
 table.button:hover td a,
 table.button:active td a,
@@ -624,7 +631,7 @@ table.medium-button td a:visited,
 table.large-button:hover td a,
 table.large-button:active td a,
 table.large-button td a:visited {
-  color: #ffe3d1 !important;
+  color: #ffefd1 !important;
 }
 table.secondary:hover td a,
 table.secondary td a:visited,

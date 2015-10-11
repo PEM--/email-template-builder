@@ -1,24 +1,11 @@
 // Colors
-green = #006b00
-green-gradient-dark = #147114
-green-gradient-light = #3E8C3D
-grey = #96989c
-lightgrey = rgb(236, 238,239)
-grey-dark = #444444
-error = #f90057
-base-color = grey-dark
-lightyellow = #F6F6E5
-yelloworange = #F5A623
-orange = #FF6600
+green = #007E5F
 blue = #6CAEDF
+lightGrey = #f0f0f0
+grey = #bcbcbc
+darkGrey = #6b6b6b
 
-// Text
-body-font-size = 18px
-base-line-height = 1.3
-
-spacer = body-font-size
-
-textColor = #555555
+textColor = darkGrey
 
 brandPrimary = orange
 brandSecondary = green
@@ -29,7 +16,6 @@ invertedBrandPrimary = lighten(orange, 70%)
 hoveredInvertedBrandPrimary = lighten(invertedBrandPrimary, 40%)
 
 headerColor = brandSecondary
-
 
 bgColor = hoveredInvertedBrandPrimary
 hrColor = lighten(orange, 50%)
@@ -52,13 +38,19 @@ body, .body, html
   border-radius 5px
 
 // Invoice
-
-
+.invoice
+  border 1px grey solid
+  background lightGrey
+  pre
+    color darkGrey
 
 // Import Ink (based on 1.0.5, modified for Stylus)
 @import '_ink'
 
 // Old junkyard
+// body-font-size = 18px
+// base-line-height = 1.3
+// spacer = body-font-size
 // Responsive switches (overridden in ie.styl)
 //fix-mqs ?= false
 //old-ie ?= false

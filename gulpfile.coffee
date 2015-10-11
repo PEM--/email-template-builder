@@ -25,12 +25,6 @@ handleError = ->
     "Error: <%= error.message %>"
 
 # Build
-gulp.task 'inline', ->
-  gulp.src [paths.html]
-    #.pipe($.inlineCss(preserveMediaQueries: true))
-    .pipe $.juice()
-    .pipe gulp.dest paths.build
-
 gulp.task 'plaintext', ->
   gulp.src paths.html
     .pipe $.html2txt()
@@ -53,6 +47,12 @@ gulp.task 'jade', ->
     .pipe gulp.dest './'
     .pipe $.livereload()
 
+gulp.task 'inline', ['jade', 'stylus'], ->
+  gulp.src [paths.html]
+    #.pipe($.inlineCss(preserveMediaQueries: true))
+    .pipe $.juice()
+    .pipe gulp.dest paths.build
+
 # Server
 gulp.task 'connect', ->
   $.connect.server
@@ -71,7 +71,9 @@ gulp.task 'watch', ->
     paths.css
   ], ['reload', 'inline']
 
-gulp.task 'clean', require('del').bind(null, [paths.build])
+gulp.task 'clean', require('del').bind(null, [
+  paths.build, paths.css, paths.html
+])
 
 # Add Media Queries to Head (configure in ./addMediaQueries.coffee)
 # gulp.task 'addMediaQueries', ->

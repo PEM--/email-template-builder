@@ -755,18 +755,22 @@ html {
 .invoice pre {
   color: #6b6b6b !important;
 }
+.cgv {
+  background: #6b6b6b !important;
+}
 .cgv h1,
 .cgv h2,
 .cgv h3,
 .cgv h4,
 .cgv h5,
 .cgv h6 {
-  color: #6b6b6b !important;
+  color: #bcbcbc !important;
   text-align: left !important;
   font-size: 14px !important;
 }
 .cgv p,
 .cgv a {
+  color: #bcbcbc !important;
   font-size: 12px !important;
   text-align: justify !important;
 }

@@ -1,37 +1,44 @@
 extends ../includes/layout.jade
 
 block body
-  +fullWidthRow
-    p.center &nbsp;
-  +container()(class='main-content')
-    +row()
-      +columns('twelve', 'last')
-        td.text-pad
-          h3 Veuillez confirmer votre email
-    +row()
-      +columns('twelve', 'last')
-        td.center.text-pad
-          p Nous vous remercions de bien vouloir confirmer votre adresse email en cliquant sur le bouton ci-dessous.
-    +row()
-      +columns('twelve', 'last')
-        td.center.text-pad
-          p En effet, nous avons besoin de vous envoyer des informations importantes pour le bon fonctionnement de notre service. Ce dernier ne peut fonctionner sans une adresse email valide.
-    +row()(class='button-wrapper')
-      +columns ('seven', 'last')
-        td.center.text-pad
-          a(href='https://google.fr')
-            +button('Je confirme mon email')(style="large-button radius")
-    +row()
-      +columns('twelve', 'last')
-        td.center.text-pad
-          p — Le comité d'organisation AVEF/SNVEL
-          p &nbsp;
-  +fullWidthRow
-    p.center
-      | Suivez&nbsp;
-      a(href='http://o9z6.mjt.lu/link/o9z6/xw9tq7454o2r/2/f4d0A16B0qP8eXeO8h2X1g/aHR0cDovL3R3aXR0ZXIuY29tL0FWRUZf') @AVEF_
-      | &nbsp;sur Twitter.
-    p.center
-      | Suivez&nbsp; 
-      a(href='http://o9z6.mjt.lu/link/o9z6/xw9tq7454o2r/3/ZKdmZ2Kmx29bKk9NPf1AKg/aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL0NvbmdyZXMtQXZlZnNudmVsLTIwMTUtMTQ3NDQ2Njg2Mjg2NjIwNC8') Congrès AVEF - SNVEL
-      | &nbsp;sur Facebook.
+  +layout
+    // Header
+    +fullWidthRow
+      p.center &nbsp;
+
+    // Body
+    +body
+      +container()(class='main-content')
+        +row()
+          +columns('twelve', 'last')
+            td.text-pad
+              h3 Veuillez confirmer votre email
+        +row()
+          +columns('twelve', 'last')
+            td.center.text-pad
+              p Nous vous remercions de bien vouloir confirmer votre adresse email en cliquant sur le bouton ci-dessous.
+        +row()
+          +columns('twelve', 'last')
+            td.center.text-pad
+              p En effet, nous avons besoin de vous envoyer des informations importantes pour le bon fonctionnement de notre service. Ce dernier ne peut fonctionner sans une adresse email valide.
+        +row()(class='button-wrapper')
+          +columns ('seven', 'last')
+            td.center.text-pad
+              a(href='https://google.fr')
+                +button('Je confirme mon email')(style="large-button radius")
+        +row()
+          +columns('twelve', 'last')
+            td.center.text-pad
+              p — Le comité d'organisation AVEF/SNVEL
+              p &nbsp;
+
+    // Footer
+    +fullWidthRow
+      p.center
+        | Suivez&nbsp;
+        a(href='http://o9z6.mjt.lu/link/o9z6/xw9tq7454o2r/2/f4d0A16B0qP8eXeO8h2X1g/aHR0cDovL3R3aXR0ZXIuY29tL0FWRUZf') @AVEF_
+        | &nbsp;sur Twitter.
+      p.center
+        | Suivez&nbsp; 
+        a(href='http://o9z6.mjt.lu/link/o9z6/xw9tq7454o2r/3/ZKdmZ2Kmx29bKk9NPf1AKg/aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL0NvbmdyZXMtQXZlZnNudmVsLTIwMTUtMTQ3NDQ2Njg2Mjg2NjIwNC8') Congrès AVEF - SNVEL
+        | &nbsp;sur Facebook.

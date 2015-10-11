@@ -1,41 +1,48 @@
 extends ../includes/layout.jade
 
 block body
-  +fullWidthRow
-    p.center &nbsp;
-  +container()(class='main-content')
-    +row()
-      +columns('twelve', 'last')
-        td.text-pad
-          h3 Votre inscription au congrès
-    +row()
-      +columns('twelve', 'last')
-        td.center.text-pad
-          p Bonjour,
-    +row()
-      +columns('twelve', 'last')
-        td.center.text-pad
-          p Nous vous remercions pour votre participation au prochain Congrès AVEF/SNVEL 2015.
-    +row()
-      +columns('twelve', 'last')
-        td.center.text-pad
-          p Veuillez trouver ci-après la facture correspondant à votre inscription ainsi que les Conditions Générale de Vente liées à cet événement.
-    +row()
-      +columns('twelve', 'last')
-        td.center.text-pad
-          pre.invoice.
-            Blabla
-            blabla
-            blibli blibli
-    +row()
-      +columns('twelve', 'last')
-        td.center.text-pad
-          p Au plaisir de vous retrouver du 3 au 5 novembre 2015 aux Docks de Paris.
-    +row()
-      +columns('twelve', 'last')
-        td.center.text-pad
-          p — Le comité d'organisation AVEF/SNVEL
-          p &nbsp;
+  +layout
+    // Header
+    +fullWidthRow
+      p.center &nbsp;
+
+    // Body
+    +body
+      +container()(class='main-content')
+        +row()
+          +columns('twelve', 'last')
+            td.text-pad
+              h3 Votre inscription au congrès
+        +row()
+          +columns('twelve', 'last')
+            td.center.text-pad
+              p Bonjour,
+        +row()
+          +columns('twelve', 'last')
+            td.center.text-pad
+              p Nous vous remercions pour votre participation au prochain Congrès AVEF/SNVEL 2015.
+        +row()
+          +columns('twelve', 'last')
+            td.center.text-pad
+              p Veuillez trouver ci-après la facture correspondant à votre inscription ainsi que les Conditions Générale de Vente liées à cet événement.
+        +row()
+          +columns('twelve', 'last')
+            td.center.text-pad
+              pre.invoice.
+                Blabla
+                blabla
+                blibli blibli
+        +row()
+          +columns('twelve', 'last')
+            td.center.text-pad
+              p Au plaisir de vous retrouver du 3 au 5 novembre 2015 aux Docks de Paris.
+        +row()
+          +columns('twelve', 'last')
+            td.center.text-pad
+              p — Le comité d'organisation AVEF/SNVEL
+              p &nbsp;
+
+  // Footer
   +fullWidthRow
     p.center
       | Suivez&nbsp;
@@ -45,9 +52,8 @@ block body
       | Suivez&nbsp; 
       a(href='http://o9z6.mjt.lu/link/o9z6/xw9tq7454o2r/3/ZKdmZ2Kmx29bKk9NPf1AKg/aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL0NvbmdyZXMtQXZlZnNudmVsLTIwMTUtMTQ3NDQ2Njg2Mjg2NjIwNC8') Congrès AVEF - SNVEL
       | &nbsp;sur Facebook.
-  +fullWidthRow
-    p &nbsp;
-  +fullWidthRow('cgv red')
+
+  +fullWidthRow('cgv')
     h1 Conditions générales de ventes
     h2#pr-ambule Préambule
     p

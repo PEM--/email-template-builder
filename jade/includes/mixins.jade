@@ -1,3 +1,18 @@
+mixin layout()
+  table.body
+    tr
+      td.center(align="center", valign="top").global-wrapper
+        center
+          if block
+            block
+
+mixin body()
+  +row()
+    td.center(align='center')
+      center
+        if block
+          block
+
 mixin container()
   table.container(class!=attributes.class)
     tr
@@ -10,7 +25,6 @@ mixin row()
     tr
       if block
         block
-
 
 //- the columns mixin takes in the 
 //- the number of columns and 
@@ -36,13 +50,12 @@ mixin fullWidthRow(wrapperClasses)
   - var wrapperClasses = wrapperClasses ? wrapperClasses : ''
   +row()
     td.center(align='center')
-      center
-        +container()(class!=wrapperClasses)
+      center(class!=wrapperClasses)
+        +container()
           +columns('tweleve', 'last') 
             if block
               block
             td.expander
-
 
 mixin blockGrid(number)
   - var grid = "block-grid " + number + '-up'
